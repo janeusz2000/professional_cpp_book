@@ -31,5 +31,7 @@ int main() {
     // To prevent memory leaks, every call to new should be paired with a call to delete, and every call 
     // to new[] should be paired with a call to delete[]. Not calling delete or delete[], or mismatching calls, results in memory leaks.
 
+
+    // NULL should be not used, because NULL = int 0;
     return 0;
 }
