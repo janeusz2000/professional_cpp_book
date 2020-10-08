@@ -1,0 +1,24 @@
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library", "cc_test")
+
+# https://docs.bazel.build/versions/master/be/c-cpp.html#cc_library
+cc_library(
+    name = "utils",
+    hdrs = ["PacketConnector/objects.h"],
+    copts = ["/std:c++17"],
+)
+
+cc_binary(
+    name = "ipPackets",
+    srcs = ["PacketConnector/main.cpp"],
+    copts = ["/std:c++17"],
+    deps = [
+        ":utils",
+    ],
+)
+
+cc_test(
+    name = "my_test",
+    srcs = ["test.cpp"],
+    copts = ["-Iexternal/gtest/include"],
+    deps = ["@com_google_googletest//:gtest_main"],
+)
